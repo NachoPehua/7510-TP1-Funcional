@@ -1,3 +1,5 @@
+(ns logical-interpreter  
+	(:require [clojure.test :refer :all]
             ))
 (require '[clojure.string :as str])
 
