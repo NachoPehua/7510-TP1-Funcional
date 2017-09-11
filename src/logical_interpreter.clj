@@ -77,7 +77,7 @@
     )
   )
 
-(defn parser-query [query facts rules]
+(defn separate-query [query facts rules]
   "Separate rule-query from fact-query"
   (def queryp (parser-fact query))
   (if (contains? rules (keyword(first queryp)))
@@ -109,7 +109,7 @@
    (def listas (map parser lines))
   ((fn [x] (def rules (first x))(def facts (second x))) (separate listas))
   (def map-rules (reduce merge (map ev-rules rules)))
-  (parser-query query facts map-rules)
+  (separate-query query facts map-rules)
    )
  
 (defn evaluate-query [database query] 
